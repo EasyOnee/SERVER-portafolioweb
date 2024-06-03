@@ -25,11 +25,10 @@ app.get('/', (req, res) => {
 });
 
 
-// Sincronizar la base de datos y luego iniciar el servidor
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync().then(() => {  
     app.listen(port, () => {
-        console.log(`Servidor escuchando en el puerto ${port}`);
+      console.log(`Servidor volando http://localhost:${port}`);
     });
-}).catch((error) => {
+  }).catch((error) => {
     console.log('Error en la sincronización de la BDD: ', error);
-});
+  });

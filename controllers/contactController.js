@@ -1,5 +1,6 @@
 const { Contact } = require('../models');
 
+
 exports.createContact = async (req, res) => {
     try {
         const contact = await Contact.create(req.body);
