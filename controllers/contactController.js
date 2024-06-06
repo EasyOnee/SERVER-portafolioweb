@@ -4,7 +4,7 @@ const { Contact } = require('../models');
 exports.createContact = async (req, res) => {
     try {
         const contact = await Contact.create(req.body);
-        res.status(201).json(contact); // Corregir la variable enviada en la respuesta
+        res.status(201).json(contact);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -12,7 +12,7 @@ exports.createContact = async (req, res) => {
 
 exports.getAllContact = async (req, res) => {
     try {
-        const contacts = await Contact.findAll(); // Cambiar el nombre de la variable para evitar confusiones
+        const contacts = await Contact.findAll();
         res.status(200).json(contacts);
     } catch (error) {
         res.status(400).json({ error: error.message });

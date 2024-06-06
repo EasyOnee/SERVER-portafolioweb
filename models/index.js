@@ -1,15 +1,12 @@
 const sequelize = require('../config/database');
-const Project = require('./project');
-const Skill = require('./skill');
-const Contact = require('./contact');
+const Contact = require('./Contact');
+const Profile = require('./profile');
 
-Project.belongsToMany(Skill, { through: 'ProjectSkills' });
-Skill.belongsToMany(Project, { through: 'ProjectSkills' });
-Contact.belongsToMany(Contact, { as: 'Contacts', through: 'ContactContacts', foreignKey: 'contactId' });
+Profile.hasMany(Contact, { foreignKey: 'profileId' });
+Contact.belongsTo(Profile, { foreignKey: 'profileId' });
+
 
 module.exports = {
-    sequelize,
-    Project,
-    Skill,
-    Contact
+    Contact,
+    Profile
 };
