@@ -4,5 +4,7 @@ const profileController = require('../controllers/profileController');
 
 router.post('/', profileController.createProfile);
 router.get('/', profileController.getAllProfiles);
+router.get('/:id', profileController.getProfileById); 
+router.put('/:id', profileController.updateProfile);
 
 module.exports = router;
